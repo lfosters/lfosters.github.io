@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="食人鼠专题页，提供关于啮齿类害虫的专业防治知识、入侵物种识别指南、家庭除鼠安全措施及生态影响分析。">
+    <meta name="keywords" content="食人鼠, 老鼠防治, 害虫控制, 啮齿类动物, 鼠疫预防, 家庭除鼠">
+    <title>食人鼠-专业害虫防治与啮齿类入侵物种识别指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #c0392b;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background-color: #1a252f;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://picsum.photos/seed/rat1/1600/900') no-repeat center center/cover;
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, opacity 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-secondary {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 3rem 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Features List */
+        .features-section {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .feature-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+
+        .feature-content h4 {
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .feature-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Prevention Steps */
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .step {
+            flex: 1 1 200px;
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -10px;
+            width: 20px;
+            height: 2px;
+            background-color: var(--border-color);
+            display: none;
+        }
+
+        .step:last-child::after {
+            display: none;
+        }
+
+        .step-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ */
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .faq-item {
+            background: var(--bg-white);
+            margin-bottom: 1rem;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: var(--bg-white);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background-color: #fafafa;
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1.2rem;
+            max-height: 200px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+
+            .header-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"/><path d="M5 12v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/><path d="M9 12V8a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"/><path d="M12 12v6"/></svg>
+            Pest<span>Guard</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#identification">物种识别</a></li>
+                <li><a href="#prevention">防治指南</a></li>
+                <li><a href="#safety">安全措施</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="cta-button">联系专家</a>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>了解与应对食人鼠</h1>
+    <p>针对啮齿类害虫的专业识别、家庭防护及安全处理指南。确保您的生活环境远离卫生隐患。</p>
+    <div class="hero-actions">
+        <a href="#identification" class="btn btn-primary">查看识别指南</a>
+        <a href="#prevention" class="btn btn-secondary">学习防治方法</a>
+    </div>
+</section>
+
+<main class="container">
+    <div class="section-title">
+        <h2>核心危害与风险</h2>
+        <p>为何需要重视啮齿类动物的入侵与控制</p>
+    </div>
+
+    <div class="info-grid">
+        <article class="card">
+            <div class="card-icon">🦠</div>
+            <h3>疾病传播</h3>
+            <p>啮齿类动物是多种病原体的宿主，包括鼠疫、汉坦病毒、沙门氏菌等，通过排泄物、尿液和跳蚤传播，对人类健康构成严重威胁。</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🏚️</div>
+            <h3>结构破坏</h3>
+            <p>啮齿动物的牙齿终生生长，必须通过啃咬硬物来磨损。它们会破坏电线绝缘层、木制结构、管道和保温材料，造成安全隐患。</p>
+        </article>
+        <article class="card">
+            <div class="card-icon">🥗</div>
+            <h3>食品安全</h3>
+            <p>在觅食过程中，它们会污染大量食物储备。其活动痕迹和排泄物不仅造成直接浪费，还会引发严重的过敏反应。</p>
+        </article>
+    </div>
+
+    <div class="section-title">
+        <h2>家庭防治关键步骤</h2>
+        <p>建立全方位的防御体系，切断入侵途径</p>
+    </div>
+
+    <section class="features-section">
+        <div class="feature-list">
+            <div class="feature-item">
+                <div class="feature-number">01</div>
+                <div class="feature-content">
+                    <h4>环境治理</h4>
+                    <p>清除积水、垃圾堆放和杂物，消除鼠类的藏身之处和食物来源。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-number">02</div>
+                <div class="feature-content">
+                    <h4>物理封堵</h4>
+                    <p>检查并封堵所有直径超过0.6厘米的裂缝和孔洞，特别是管道和通风口周围。</p>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-number">03</div>
+                <div class="feature-content">
+                    <h4>监测与清除</h4>
+                    <p>使用粘鼠板、捕鼠笼或专业毒饵站进行监测和捕杀，定期检查效果。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top: 3rem;">
+            <h3>详细操作流程</h3>
+        </div>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-title">🔍 痕迹排查</div>
+                <div class="step-desc">寻找新鲜粪便（呈长条状，一端尖）、咬痕（平滑）、油脂痕迹（足印）和噪音。</div>
+            </div>
+            <div class="step">
+                <div class="step-title">🚫 隔绝入口</div>
+                <div class="step-desc">使用金属网、钢丝棉或水泥封堵墙洞，确保门窗缝隙密封良好。</div>
+            </div>
+            <div class="step">
+                <div class="step-title">🧹 清洁卫生</div>
+                <div class="step-desc">所有食物必须密封存放，地面保持清洁，定期清理橱柜深处。</div>
+            </div>
+            <div class="step">
+                <div class="step-title">🧪 科学投放</div>
+                <div class="step-desc">在鼠道沿线（墙根、转角）正确放置诱饵，避免儿童和宠物误食。</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-title">
+        <h2>常见问题 (FAQ)</h2>
+        <p>关于食人鼠及害虫控制的常见疑问解答</p>
+    </div>
+
+    <section class="faq-section">
+        <div class="faq-item">
+            <div class="faq-question">食人鼠真的存在吗？</div>
+            <div class="faq-answer">
+                <p>自然界中不存在生物学意义上的“食人鼠”。所谓的“食人鼠”通常是指啮齿类动物（如褐家鼠、黄胸鼠）因极度饥饿、种群密度过大或感染狂犬病等病理状态而表现出攻击性。在正常情况下，它们主要食性为谷物、水果、昆虫和腐肉，除非受到挑衅或极度威胁，否则不会主动攻击人类。</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">发现一只老鼠，家里一定有很多吗？</div>
+            <div class="faq-answer">
+                <p>不一定。老鼠具有很强的领地意识，通常一只活跃的雄鼠会占据一个区域。发现一只可能意味着它刚刚进入，或者它已经是这个区域的霸主。但也可能只是因为环境变化（如温度、气味）导致它暂时出现。建议不要掉以轻心，应立即开始监测和防治措施。</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">使用老鼠药安全吗？</div>
+            <div class="faq-answer">
+                <p>老鼠药（抗凝血剂）在专业指导下是有效的，但存在风险。如果误食，对儿童和宠物极其危险。此外，老鼠可能死在难以触及的角落（如天花板夹层、墙壁内部），腐烂的尸体会产生恶臭并滋生苍蝇。建议优先使用物理捕鼠工具，或咨询专业灭鼠人员进行药物投放。</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">如何区分家鼠和野鼠？</div>
+            <div class="faq-answer">
+                <p>褐家鼠（沟鼠）体型较大，通常生活在下水道或地面，食量大；黄胸鼠（屋顶鼠）体型修长，善于攀爬，常在屋顶、天花板活动；小家鼠体型最小，喜欢温暖干燥的地方（如厨房），食量小但繁殖快。识别它们有助于选择针对性的防治位置。</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer id="contact">
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>PestGuard 害虫防治</h4>
+            <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.6;">
+                专注于家庭与商业环境的卫生安全。提供专业的害虫评估、综合治理方案及后续维护服务。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>快速链接</h4>
+            <ul>
+                <li><a href="#identification">物种识别</a></li>
+                <li><a href="#prevention">防治指南</a></li>
+                <li><a href="#safety">安全须知</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>服务项目</h4>
+            <ul>
+                <li><a href="#">家庭灭鼠服务</a></li>
+                <li><a href="#">餐饮行业除虫</a></li>
+                <li><a href="#">设施维护</a></li>
+                <li><a href="#">咨询服务</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 PestGuard 害虫防治中心. All rights reserved. 本页面仅供科普参考，具体请咨询专业机构。
+    </div>
+</footer>
+
+<script>
+    // 简单的 FAQ 折叠交互
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // 关闭其他所有打开的项
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // 切换当前项
+                item.classList.toggle('active');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
