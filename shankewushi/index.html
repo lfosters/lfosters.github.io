@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闪客巫师-Flash怀旧游戏与经典动画资源站</title>
+    <meta name="description" content="闪客巫师 - 汇集经典Flash游戏、怀旧动画、网页特效源码及教学资源。重温千禧年互联网黄金时代，提供老版小游戏下载与在线体验。">
+    <meta name="keywords" content="闪客巫师,Flash游戏,Flash动画,怀旧游戏,网页特效,源码下载,经典小游戏">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00d2ff;
+            --secondary-color: #3a7bd5;
+            --accent-color: #ff0055;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-sub);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 5px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            color: var(--text-main);
+            outline: none;
+            width: 150px;
+            font-size: 0.9rem;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            color: var(--text-sub);
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            padding: 80px 0;
+            background: radial-gradient(circle at 50% 50%, rgba(58, 123, 213, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero h1 .highlight {
+            color: var(--primary-color);
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* 分类导航 */
+        .categories {
+            padding: 40px 0;
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .cat-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1);
+        }
+
+        .cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .cat-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cat-count {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        /* 热门游戏/推荐 */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 24px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .view-all {
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .game-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #2d3748;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .game-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .game-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .play-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            margin-left: 3px; /* Visual adjustment */
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .game-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: rgba(58, 123, 213, 0.2);
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .game-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        /* 特色源码 */
+        .code-section {
+            background: linear-gradient(180deg, var(--bg-dark) 0%, #162032 100%);
+            padding: 60px 0;
+            margin-top: 40px;
+        }
+
+        .code-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .code-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .code-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: var(--primary-color);
+        }
+
+        .code-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .code-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: monospace;
+            color: var(--primary-color);
+            border: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .code-text h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .code-text p {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+
+        .btn-download {
+            background: var(--primary-color);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn-download:hover {
+            background: #33ddff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+        }
+
+        /* 页脚 */
+        footer {
+            background: #0b1120;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-sub);
+            margin-top: 15px;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-sub);
+            font-size: 0.85rem;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand p {
+                margin: 15px auto;
+            }
+
+            .code-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .btn-download {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>⚡</span> 闪客巫师
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">游戏大厅</a></li>
+                    <li><a href="#">动画剧场</a></li>
+                    <li><a href="#">源码下载</a></li>
+                    <li><a href="#">教程社区</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索经典Flash...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>重温千禧年互联网黄金时代<br><span class="highlight">闪客巫师</span>经典资源站</h1>
+                <p>这里是Flash爱好者的圣地。汇聚超过5000款经典小游戏、原创动画及Web交互特效源码。无需安装，浏览器即可畅玩。</p>
+                <div style="margin-bottom: 30px;">
+                    <a href="#" style="background: var(--primary-color); color: #000; padding: 12px 30px; border-radius: 30px; font-weight: bold; display: inline-block;">立即开始游戏</a>
+                    <a href="#" style="background: transparent; color: var(--text-main); border: 1px solid var(--text-sub); padding: 12px 30px; border-radius: 30px; font-weight: bold; display: inline-block; margin-left: 10px;">浏览源码</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>5,200+</h3>
+                        <p>经典游戏</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>1,800+</h3>
+                        <p>原创动画</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>300+</h3>
+                        <p>特效源码</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories container">
+            <div class="cat-grid">
+                <div class="cat-card">
+                    <span class="cat-icon">🎮</span>
+                    <div class="cat-title">动作射击</div>
+                    <div class="cat-count">1,240 款游戏</div>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">🧩</span>
+                    <div class="cat-title">益智解谜</div>
+                    <div class="cat-count">890 款游戏</div>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">🏎️</span>
+                    <div class="cat-title">赛车竞速</div>
+                    <div class="cat-count">320 款游戏</div>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">🎵</span>
+                    <div class="cat-title">音乐节奏</div>
+                    <div class="cat-count">450 款游戏</div>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">🎬</span>
+                    <div class="cat-title">搞笑动画</div>
+                    <div class="cat-count">1,100 部作品</div>
+                </div>
+                <div class="cat-card">
+                    <span class="cat-icon">⚔️</span>
+                    <div class="cat-title">RPG冒险</div>
+                    <div class="cat-count">560 款游戏</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hot Games -->
+        <section class="container">
+            <div class="section-title">
+                <h2>本周热门推荐</h2>
+                <a href="#" class="view-all">查看全部 &rarr;</a>
+            </div>
+            <div class="games-grid">
+                <!-- Game Card 1 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/flashgame1/400/300" alt="Flash Game Thumbnail">
+                        <div class="play-overlay">
+                            <a href="#" class="play-btn" title="开始游戏">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="game-tag">动作</span>
+                        <h3 class="game-title">黑衣人：入侵行动</h3>
+                        <div class="game-meta">
+                            <span>🔥 2.3万次游玩</span>
+                            <span>⭐ 4.8分</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 2 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/flashgame2/400/300" alt="Flash Game Thumbnail">
+                        <div class="play-overlay">
+                            <a href="#" class="play-btn" title="开始游戏">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="game-tag">益智</span>
+                        <h3 class="game-title">疯狂填色：涂鸦世界</h3>
+                        <div class="game-meta">
+                            <span>🔥 1.8万次游玩</span>
+                            <span>⭐ 4.9分</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 3 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/flashgame3/400/300" alt="Flash Game Thumbnail">
+                        <div class="play-overlay">
+                            <a href="#" class="play-btn" title="开始游戏">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="game-tag">冒险</span>
+                        <h3 class="game-title">迷宫大逃亡：黄金版</h3>
+                        <div class="game-meta">
+                            <span>🔥 1.5万次游玩</span>
+                            <span>⭐ 4.7分</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Game Card 4 -->
+                <article class="game-card">
+                    <div class="card-image">
+                        <img src="https://picsum.photos/seed/flashgame4/400/300" alt="Flash Game Thumbnail">
+                        <div class="play-overlay">
+                            <a href="#" class="play-btn" title="开始游戏">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <span class="game-tag">音乐</span>
+                        <h3 class="game-title">钢琴大师：旋律挑战</h3>
+                        <div class="game-meta">
+                            <span>🔥 9,800次游玩</span>
+                            <span>⭐ 4.6分</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Code Section -->
+        <section class="code-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>精选源码下载</h2>
+                    <a href="#" class="view-all">获取更多 &rarr;</a>
+                </div>
+                <div class="code-list">
+                    <div class="code-item">
+                        <div class="code-info">
+                            <div class="code-icon">&lt;/&gt;</div>
+                            <div class="code-text">
+                                <h4>HTML5 Canvas 粒子爆炸特效源码</h4>
+                                <p>适用于网页Banner、按钮交互，包含完整的配置参数说明。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-download">下载源码</a>
+                    </div>
+                    <div class="code-item">
+                        <div class="code-info">
+                            <div class="code-icon">{}</div>
+                            <div class="code-text">
+                                <h4>JavaScript 简单打字游戏框架</h4>
+                                <p>开箱即用的游戏模板，支持自定义单词库和难度设置。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-download">下载源码</a>
+                    </div>
+                    <div class="code-item">
+                        <div class="code-info">
+                            <div class="code-icon">⚡</div>
+                            <div class="code-text">
+                                <h4>Flash AS2.0 经典游戏存档读取系统</h4>
+                                <p>怀旧向代码，演示如何使用SharedObject实现本地存档功能。</p>
+                            </div>
+                        </div>
+                        <a href="#" class="btn-download">下载源码</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span>⚡</span> 闪客巫师
+                    </a>
+                    <p>致力于保存和传播互联网早期的Flash动画与游戏文化。无论时代如何变迁，经典永存。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">免责声明</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系站长</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>热门分类</h4>
+                    <ul>
+                        <li><a href="#">冒险类游戏</a></li>
+                        <li><a href="#">射击类游戏</a></li>
+                        <li><a href="#">搞笑动画</a></li>
+                        <li><a href="#">教学源码</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>友情链接</h4>
+                    <ul>
+                        <li><a href="#">Flash游戏之家</a></li>
+                        <li><a href="#">AS3.0 教程网</a></li>
+                        <li><a href="#">老网页游戏库</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 闪客巫师. All Rights Reserved. 本站内容仅供学习交流使用，版权归原作者所有。
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
