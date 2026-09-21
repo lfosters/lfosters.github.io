@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="汉字听写大赛视频在线观看平台，收录全国汉字听写大赛高清视频资源，提供经典赛事回顾、选手风采展示及汉字书写教学指导。">
+    <meta name="keywords" content="汉字听写大赛视频,汉字听写大赛,汉字听写,中华汉字大赛,汉字听写比赛">
+    <title>汉字听写大赛视频-全国赛事精彩回顾与高清资源库</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #b83b3b;
+            --secondary-color: #2c3e50;
+            --accent-color: #f1c40f;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --spacing-unit: 16px;
+            --border-radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0 var(--spacing-unit);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            padding: 8px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #1a252f 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 30px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+        }
+
+        /* Video Section */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .video-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .thumbnail-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #000;
+        }
+
+        .thumbnail-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+        }
+
+        .video-info {
+            padding: 15px;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .video-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .tag {
+            background-color: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .tag.hot {
+            background-color: #ffecec;
+            color: var(--primary-color);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .rank-list li {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .rank-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-num {
+            width: 24px;
+            height: 24px;
+            background-color: #eee;
+            color: #666;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 0.85rem;
+        }
+
+        .rank-list li:nth-child(1) .rank-num { background-color: #ffd700; color: #fff; }
+        .rank-list li:nth-child(2) .rank-num { background-color: #c0c0c0; color: #fff; }
+        .rank-list li:nth-child(3) .rank-num { background-color: #cd7f32; color: #fff; }
+
+        .rank-title {
+            flex: 1;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .category-btn {
+            display: block;
+            padding: 8px 12px;
+            background-color: #f4f4f4;
+            text-align: center;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .category-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #ccc;
+            padding: 40px 20px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            width: 90%;
+            max-width: 800px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .modal-video-container {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: black;
+        }
+
+        .modal-video-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .modal-info {
+            padding: 20px;
+        }
+
+        .modal-info h3 {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            nav ul {
+                margin-top: 10px;
+                font-size: 0.9rem;
+            }
+
+            .search-box {
+                width: 100%;
+                margin-top: 10px;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>文</span>字听写大赛
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">全国赛</a></li>
+                    <li><a href="#">省赛回顾</a></li>
+                    <li><a href="#">校园选拔</a></li>
+                    <li><a href="#">汉字课堂</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索赛事视频...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>汉字听写大赛视频资源库</h1>
+        <p>重温经典赛程，见证汉字魅力。本站收录历届汉字听写大赛高清视频，为您提供最权威、最完整的赛事回放与学习资料。</p>
+    </section>
+
+    <div class="container">
+        <!-- Main Content -->
+        <main>
+            <section>
+                <div class="section-title">
+                    <h2>最新赛事视频</h2>
+                    <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看全部 &gt;</a>
+                </div>
+                <div class="video-grid">
+                    <!-- Video Card 1 -->
+                    <article class="video-card" onclick="openModal('2023年全国汉字听写大赛总决赛精彩回顾', '2023总决赛')">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://picsum.photos/seed/char1/400/225" alt="2023全国汉字听写大赛总决赛精彩回顾">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">2023年全国汉字听写大赛总决赛精彩回顾</h3>
+                            <div class="video-meta">
+                                <span class="tag hot">热门</span>
+                                <span>2023-11-15</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 2 -->
+                    <article class="video-card" onclick="openModal('汉字听写大赛：那些年写错的生僻字', '生僻字合集')">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://picsum.photos/seed/char2/400/225" alt="汉字听写大赛：那些年写错的生僻字">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">汉字听写大赛：那些年写错的生僻字</h3>
+                            <div class="video-meta">
+                                <span class="tag">教学</span>
+                                <span>2023-10-28</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 3 -->
+                    <article class="video-card" onclick="openModal('2022年山东省汉字听写大赛选拔赛现场实况', '省赛选拔')">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://picsum.photos/seed/char3/400/225" alt="2022年山东省汉字听写大赛选拔赛现场实况">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">2022年山东省汉字听写大赛选拔赛现场实况</h3>
+                            <div class="video-meta">
+                                <span class="tag">省赛</span>
+                                <span>2022-12-05</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 4 -->
+                    <article class="video-card" onclick="openModal('汉字听写大赛选手风采：小选手的书写之美', '选手风采')">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://picsum.photos/seed/char4/400/225" alt="汉字听写大赛选手风采：小选手的书写之美">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">汉字听写大赛选手风采：小选手的书写之美</h3>
+                            <div class="video-meta">
+                                <span class="tag">人物</span>
+                                <span>2022-11-20</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 5 -->
+                    <article class="video-card" onclick="openModal('汉字听写大赛决赛高能瞬间：极限读题与答题', '决赛高能')">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://picsum.photos/seed/char5/400/225" alt="汉字听写大赛决赛高能瞬间：极限读题与答题">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">汉字听写大赛决赛高能瞬间：极限读题与答题</h3>
+                            <div class="video-meta">
+                                <span class="tag hot">精选</span>
+                                <span>2022-10-15</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Video Card 6 -->
+                    <article class="video-card" onclick="openModal('汉字听写大赛趣味赛：成语接龙与字形辨析', '趣味赛')">
+                        <div class="thumbnail-wrapper">
+                            <img src="https://picsum.photos/seed/char6/400/225" alt="汉字听写大赛趣味赛：成语接龙与字形辨析">
+                            <div class="play-icon">▶</div>
+                        </div>
+                        <div class="video-info">
+                            <h3 class="video-title">汉字听写大赛趣味赛：成语接龙与字形辨析</h3>
+                            <div class="video-meta">
+                                <span class="tag">趣味</span>
+                                <span>2022-09-01</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section style="margin-top: 40px;">
+                <div class="section-title">
+                    <h2>赛事百科与指导</h2>
+                </div>
+                <article style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <h3 style="margin-bottom: 10px; font-size: 1.2rem;">如何准备汉字听写大赛？</h3>
+                    <p style="margin-bottom: 15px; color: #666;">
+                        汉字听写大赛不仅考验选手对汉字字形的掌握，还考察对词语含义的理解。准备比赛时，建议选手从以下几个方面入手：
+                    </p>
+                    <ul style="margin-left: 20px; color: #666; margin-bottom: 15px;">
+                        <li><strong>积累生僻字：</strong>系统学习《通用规范汉字表》中的生僻字和易错字。</li>
+                        <li><strong>理解词义：</strong>不仅要会写，还要理解词语的出处和适用语境。</li>
+                        <li><strong>规范书写：</strong>保持卷面整洁，注意笔顺和间架结构。</li>
+                    </ul>
+                    <a href="#" style="color: var(--primary-color); font-weight: bold;">阅读更多备考指南 &rarr;</a>
+                </article>
+            </section>
+        </main>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Hot List -->
+            <div class="sidebar-card">
+                <h3 style="margin-bottom: 15px; border-left: 4px solid var(--accent-color); padding-left: 10px;">热门视频榜</h3>
+                <ul class="rank-list">
+                    <li>
+                        <span class="rank-num">1</span>
+                        <span class="rank-title">2023总决赛巅峰对决全程回放</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">2</span>
+                        <span class="rank-title">汉字听写大赛经典错题大赏</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">3</span>
+                        <span class="rank-title">小学组决赛高能瞬间集锦</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">4</span>
+                        <span class="rank-title">2022年江苏省赛精彩集锦</span>
+                    </li>
+                    <li>
+                        <span class="rank-num">5</span>
+                        <span class="rank-title">汉字听写大赛选手采访实录</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Categories -->
+            <div class="sidebar-card">
+                <h3 style="margin-bottom: 15px; border-left: 4px solid var(--primary-color); padding-left: 10px;">分类浏览</h3>
+                <div class="category-list">
+                    <a href="#" class="category-btn">全国总决赛</a>
+                    <a href="#" class="category-btn">省市级选拔</a>
+                    <a href="#" class="category-btn">校园赛</a>
+                    <a href="#" class="category-btn">趣味汉字</a>
+                    <a href="#" class="category-btn">教学指导</a>
+                    <a href="#" class="category-btn">纪录片</a>
+                </div>
+            </div>
+
+            <!-- Ad Placeholder -->
+            <div class="sidebar-card" style="text-align: center; background-color: #eee; min-height: 250px; display: flex; align-items: center; justify-content: center; color: #999;">
+                广告位预留
+            </div>
+        </aside>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">关于我们</a>
+            <a href="#">版权声明</a>
+            <a href="#">联系方式</a>
+            <a href="#">用户协议</a>
+        </div>
+        <p class="copyright">Copyright © 2023 汉字听写大赛视频资源站. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-video-container">
+                <div class="modal-video-placeholder">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 10px;">
+                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                        <line x1="7" y1="2" x2="7" y2="22"></line>
+                        <line x1="17" y1="2" x2="17" y2="22"></line>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <line x1="2" y1="7" x2="7" y2="7"></line>
+                        <line x1="2" y1="17" x2="7" y2="17"></line>
+                        <line x1="17" y1="17" x2="22" y2="17"></line>
+                        <line x1="17" y1="7" x2="22" y2="7"></line>
+                    </svg>
+                    <p>视频播放器区域</p>
+                    <p style="font-size: 0.8rem; margin-top: 5px;">(此处为演示占位符，实际场景将嵌入视频播放器)</p>
+                </div>
+            </div>
+            <div class="modal-info">
+                <h3 id="modalTitle">视频标题</h3>
+                <p style="color: #666; font-size: 0.9rem;">视频描述内容...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Logic
+        const modal = document.getElementById('videoModal');
+        const modalTitle = document.getElementById('modalTitle');
+
+        function openModal(title, category) {
+            modalTitle.textContent = title;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside the content
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && modal.style.display === 'flex') {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+                          </html>
