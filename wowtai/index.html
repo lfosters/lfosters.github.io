@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="魔兽世界台服官方资讯、游戏攻略、版本更新、副本攻略及玩家社区交流平台。提供台服登录指引与最新资料片介绍。">
+    <meta name="keywords" content="wow台服, 魔兽世界台服, 魔兽世界台湾, 台服攻略, 魔兽世界资料片, 魔兽世界副本">
+    <title>wow台服-魔兽世界台服官方资讯与攻略中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0078d7;
+            --secondary-color: #2b579a;
+            --accent-color: #f0ab00;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f5f5f5;
+            --bg-white: #ffffff;
+            --border-color: #e0e0e0;
+            --header-height: 70px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "PingFang SC", "Heiti SC", sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            padding-top: var(--header-height);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/wowhero/1920/1080.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0e0e0;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            margin-top: 5px;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .news-card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .news-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-body {
+            padding: 20px;
+        }
+
+        .news-tag {
+            display: inline-block;
+            background-color: var(--bg-light);
+            color: var(--secondary-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .news-meta {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Updates Section */
+        .updates-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .update-list {
+            flex: 2;
+        }
+
+        .update-item {
+            display: flex;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-date {
+            min-width: 80px;
+            text-align: center;
+            background-color: #2b579a;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            height: fit-content;
+        }
+
+        .update-date .day {
+            font-size: 24px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .update-date .month {
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .update-content h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .update-content p {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            flex: 1;
+        }
+
+        .sidebar-widget {
+            background: var(--bg-white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .class-list {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .class-item {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .class-item:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f8ff;
+        }
+
+        .class-item span {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .class-item small {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Guide Section */
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .guide-card {
+            background: var(--bg-white);
+            border-radius: 8px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .guide-icon {
+            font-size: 40px;
+            background-color: var(--bg-light);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .guide-text h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .guide-text p {
+            color: var(--text-gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #999;
+            padding: 60px 0 20px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .updates-container {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">WOW<span>台服</span></div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新资讯</a></li>
+                    <li><a href="#">版本更新</a></li>
+                    <li><a href="#">副本攻略</a></li>
+                    <li><a href="#">职业指南</a></li>
+                    <li><a href="#">游戏下载</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-primary">登录战网</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>重返艾泽拉斯，开启全新冒险</h1>
+                <p>探索潘达利亚的迷雾，征战德拉诺的时空，体验魔兽世界台服带来的史诗级战斗与冒险。</p>
+                <div style="display: flex; gap: 15px; justify-content: center;">
+                    <a href="#" class="btn btn-primary">立即下载</a>
+                    <a href="#" class="btn btn-outline" style="border-color: white; color: white;">查看资料片</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="container">
+            <div class="section-header">
+                <h2>最新资讯</h2>
+                <p>魔兽世界台服官方公告与社区动态</p>
+            </div>
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/wownews1/400/250" alt="魔兽世界新闻" class="news-img">
+                    <div class="news-body">
+                        <span class="news-tag">官方公告</span>
+                        <h3 class="news-title">《地心之战》最新版本更新内容前瞻</h3>
+                        <p class="news-meta">发布于 2023-10-24</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/wownews2/400/250" alt="游戏活动" class="news-img">
+                    <div class="news-body">
+                        <span class="news-tag">活动预告</span>
+                        <h3 class="news-title">万圣节狂欢活动开启，丰厚奖励等你领取</h3>
+                        <p class="news-meta">发布于 2023-10-22</p>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://picsum.photos/seed/wownews3/400/250" alt="玩家社区" class="news-img">
+                    <div class="news-body">
+                        <span class="news-tag">社区动态</span>
+                        <h3 class="news-title">2023年度全服PVP大赛报名正式启动</h3>
+                        <p class="news-meta">发布于 2023-10-20</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Updates & Sidebar -->
+        <section class="container">
+            <div class="updates-container">
+                <div class="update-list">
+                    <div class="section-header">
+                        <h2>版本更新日志</h2>
+                        <p>追踪魔兽世界台服最新的补丁修复与内容调整</p>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-date">
+                            <span class="day">15</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="update-content">
+                            <h3>10月15日版本更新：修复已知问题</h3>
+                            <p>本次更新主要针对服务器稳定性进行了优化，并修复了部分职业技能在特定条件下的异常表现，请玩家留意。</p>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-date">
+                            <span class="day">02</span>
+                            <span class="month">10月</span>
+                        </div>
+                        <div class="update-content">
+                            <h3>10月2日版本更新：新地图开放</h3>
+                            <p>“地心之战”资料片的新区域已正式开放，玩家可前往探索地下深渊，挑战全新的精英怪物与首领。</p>
+                        </div>
+                    </div>
+                    <div class="update-item">
+                        <div class="update-date">
+                            <span class="day">18</span>
+                            <span class="month">09月</span>
+                        </div>
+                        <div class="update-content">
+                            <h3>9月18日版本更新：平衡性调整</h3>
+                            <p>针对部分远程职业在PVP环境中的强度进行了下调，同时增强了坦克职业的生存能力。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="sidebar">
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-title">职业选择</h4>
+                        <div class="class-list">
+                            <div class="class-item">
+                                <span>🛡️</span>
+                                <small>战士</small>
+                            </div>
+                            <div class="class-item">
+                                <span>🧙‍♂️</span>
+                                <small>法师</small>
+                            </div>
+                            <div class="class-item">
+                                <span>🏹</span>
+                                <small>猎人</small>
+                            </div>
+                            <div class="class-item">
+                                <span>🗡️</span>
+                                <small>盗贼</small>
+                            </div>
+                            <div class="class-item">
+                                <span>🔮</span>
+                                <small>牧师</small>
+                            </div>
+                            <div class="class-item">
+                                <span>⚔️</span>
+                                <small>圣骑士</small>
+                            </div>
+                            <div class="class-item">
+                                <span>💀</span>
+                                <small>死亡骑士</small>
+                            </div>
+                            <div class="class-item">
+                                <span>🧝</span>
+                                <small>德鲁伊</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4 class="sidebar-title">热门副本</h4>
+                        <ul style="line-height: 2;">
+                            <li><a href="#">· 纳萨里奥之眠 (大秘境)</a></li>
+                            <li><a href="#">· 塞兹纳尔的腐化之地</a></li>
+                            <li><a href="#">· 艾基-卡赫特</a></li>
+                            <li><a href="#">· 祖达萨</a></li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="container" style="background-color: #eef4fc; border-radius: 8px;">
+            <div class="section-header">
+                <h2>新手指南与攻略</h2>
+                <p>从零开始，快速融入艾泽拉斯的世界</p>
+            </div>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <div class="guide-icon">🚀</div>
+                    <div class="guide-text">
+                        <h3>台服登录设置</h3>
+                        <p>详细讲解如何通过战网客户端登录台服，解决网络连接问题，以及客户端版本更新流程。</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: bold;">阅读详情 &rarr;</a>
+                    </div>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">💰</div>
+                    <div class="guide-text">
+                        <h3>金币获取途径</h3>
+                        <p>分析拍卖行交易、日常任务、副本掉落以及专业生产的经济循环，助你成为暴风城的富豪。</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: bold;">阅读详情 &rarr;</a>
+                    </div>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">⚔️</div>
+                    <div class="guide-text">
+                        <h3>团队副本入门</h3>
+                        <p>了解BOSS机制、站位技巧以及装备需求，为参与10人/25人团队副本打下基础。</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: bold;">阅读详情 &rarr;</a>
+                    </div>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-icon">🤝</div>
+                    <div class="guide-text">
+                        <h3>加入公会</h3>
+                        <p>寻找志同道合的伙伴，了解公会的功能与福利，如何通过公会频道快速组队升级。</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: bold;">阅读详情 &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px;">WOW<span>台服</span></div>
+                    <p>致力于为魔兽世界台服玩家提供最及时、最全面的资讯与攻略服务。我们关注每一个版本的更新细节，致力于帮助玩家在艾泽拉斯大陆上更好地冒险。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">游戏下载</a></li>
+                        <li><a href="#">战网平台</a></li>
+                        <li><a href="#">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>游戏资料</h4>
+                    <ul>
+                        <li><a href="#">职业数据库</a></li>
+                        <li><a href="#">技能计算器</a></li>
+                        <li><a href="#">副本掉落</a></li>
+                        <li><a href="#">成就列表</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">官方微博</a></li>
+                        <li><a href="#">官方论坛</a></li>
+                        <li><a href="#">Discord社区</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 魔兽世界台服资讯站. All Rights Reserved. 本站为非官方网站，仅供玩家交流使用。</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
